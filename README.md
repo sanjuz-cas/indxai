@@ -75,17 +75,6 @@ indxai/
 ```
 
 ## 🔧 Configuration
-
-### Environment Variables
-
-Create `.env.local` file:
-
-```env
-VITE_GA_ID=G-XXXXXXXXXX
-VITE_SITE_URL=https://indxai.com
-VITE_FORM_EMAIL=contact@indxai.com
-```
-
 ### Before Deployment
 
 1. **Add Assets** (in `public/` folder):
