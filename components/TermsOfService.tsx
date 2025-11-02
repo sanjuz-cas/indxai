@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TermsOfService: React.FC = () => {
   return (
@@ -118,12 +119,12 @@ const TermsOfService: React.FC = () => {
         </div>
 
         <div className="mt-12 pt-8 border-t border-gray-800">
-          <a 
-            href="#home" 
+          <Link 
+            to="/"
             className="text-orange-400 hover:text-orange-300 font-semibold transition-colors"
           >
             ← Back to Home
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import ErrorBoundary from './components/ErrorBoundary';
 import SkipToContent from './components/SkipToContent';
 import { PageLoader } from './components/Loading';
@@ -12,9 +13,31 @@ import ContactPage from './components/ContactPage';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 
+const MainPage: React.FC = () => {
+  return (
+    <>
+      <Header />
+      <main id="main-content">
+        <section id="home">
+          <HeroSection />
+          <PartnersSection />
+          <StatsSection />
+        </section>
+        <section id="about">
+          <AboutPage />
+        </section>
+        <section id="contact">
+          <ContactPage />
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
+};
+
 const App: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState<'main' | 'privacy' | 'terms'>('main');
   const [isLoading, setIsLoading] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
     // Simulate initial loading
@@ -26,23 +49,9 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.slice(1);
-      if (hash === 'privacy') {
-        setCurrentPage('privacy');
-      } else if (hash === 'terms') {
-        setCurrentPage('terms');
-      } else {
-        setCurrentPage('main');
-      }
-      // Scroll to top on page change
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
-    handleHashChange();
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
+    // Scroll to top on route change
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [location.pathname]);
 
   if (isLoading) {
     return <PageLoader />;
@@ -52,35 +61,11 @@ const App: React.FC = () => {
     <ErrorBoundary>
       <SkipToContent />
       <div className="bg-black min-h-screen">
-        {currentPage === 'main' && (
-          <>
-            <Header />
-            <main id="main-content">
-              <section id="home">
-                <HeroSection />
-                <PartnersSection />
-                <StatsSection />
-              </section>
-              <section id="about">
-                <AboutPage />
-              </section>
-              <section id="contact">
-                <ContactPage />
-              </section>
-            </main>
-            <Footer />
-          </>
-        )}
-        {currentPage === 'privacy' && (
-          <main id="main-content">
-            <PrivacyPolicy />
-          </main>
-        )}
-        {currentPage === 'terms' && (
-          <main id="main-content">
-            <TermsOfService />
-          </main>
-        )}
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
+        </Routes>
       </div>
     </ErrorBoundary>
   );
