@@ -1,0 +1,10 @@
+# robots.txt for Indxai
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private pages (add as needed)
+# Disallow: /admin/
+
+# Sitemap location (create sitemap.xml separately)
+Sitemap: https://indxai.tech/sitemap.xml
