@@ -37,7 +37,7 @@ const AboutPage: React.FC = () => {
               <div className="aspect-square rounded-2xl bg-gradient-to-br from-orange-500/20 to-orange-900/20 backdrop-blur-sm border border-orange-500/30 overflow-hidden">
                 <img 
                   src="/img.png" 
-                  alt="Indxai - 15+ Years of Excellence in AI Solutions and Innovation" 
+                  alt="Indxai - AI Solutions and Innovation" 
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
