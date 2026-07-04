@@ -165,7 +165,7 @@ const ProductPage: React.FC = () => {
           <div className="text-center mb-16">
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">How It Works</h3>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Antigravity sits transparently between your client apps and any commercial LLM API.
+              Siphon sits transparently between your client apps and any commercial LLM API.
             </p>
           </div>
 
@@ -191,13 +191,13 @@ const ProductPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Antigravity Core */}
+              {/* Siphon Core */}
               <div className={`flex-shrink-0 transition-all duration-700 delay-300 ${flowVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
                 <div className="w-72 rounded-2xl border border-orange-500/40 bg-gradient-to-b from-orange-500/10 to-zinc-900 p-5 relative overflow-hidden group hover:border-orange-500/70 transition-colors">
                   <div className="absolute inset-0 bg-gradient-to-b from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="relative z-10">
                     <div className="text-center mb-4">
-                      <span className="text-orange-400 font-black text-lg tracking-wide">ANTIGRAVITY</span>
+                      <span className="text-orange-400 font-black text-lg tracking-wide">SIPHON</span>
                     </div>
                     <div className="space-y-2">
                       {['Privacy Firewall', 'Token Compression', 'Semantic Cache', 'LLM Router'].map((step, i) => (
@@ -241,7 +241,7 @@ const ProductPage: React.FC = () => {
               </div>
               <div className="w-full max-w-xs rounded-xl border border-orange-500/40 bg-gradient-to-b from-orange-500/10 to-zinc-900 p-5">
                 <div className="text-center mb-3">
-                  <span className="text-orange-400 font-black tracking-wide">ANTIGRAVITY</span>
+                  <span className="text-orange-400 font-black tracking-wide">SIPHON</span>
                 </div>
                 <div className="space-y-2">
                   {['Privacy Firewall', 'Token Compression', 'Semantic Cache', 'LLM Router'].map((step, i) => (
@@ -337,7 +337,7 @@ const ProductPage: React.FC = () => {
           <div className="text-center mb-16">
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">The Cost Delta</h3>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              See the difference Antigravity makes on 1 million tokens.
+              See the difference Siphon makes on 1 million tokens.
             </p>
           </div>
 
@@ -346,7 +346,7 @@ const ProductPage: React.FC = () => {
               {/* Raw cost */}
               <div className="bg-zinc-900 border border-gray-800 rounded-2xl p-8 text-center relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-1 bg-red-500/60" />
-                <span className="text-xs text-gray-500 uppercase tracking-widest font-semibold">Without Antigravity</span>
+                <span className="text-xs text-gray-500 uppercase tracking-widest font-semibold">Without Siphon</span>
                 <div className="mt-4 mb-2">
                   <span className="text-5xl md:text-6xl font-black text-gray-300">${rawCost.count}</span>
                 </div>
@@ -362,7 +362,7 @@ const ProductPage: React.FC = () => {
               {/* Optimized cost */}
               <div className="bg-zinc-900 border border-orange-500/30 rounded-2xl p-8 text-center relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-500 to-green-500" />
-                <span className="text-xs text-orange-400 uppercase tracking-widest font-semibold">With Antigravity</span>
+                <span className="text-xs text-orange-400 uppercase tracking-widest font-semibold">With Siphon</span>
                 <div className="mt-4 mb-2">
                   <span className="text-5xl md:text-6xl font-black text-orange-400">${optimizedCost.count}</span>
                 </div>
@@ -393,7 +393,7 @@ const ProductPage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Defy Token Gravity?</h3>
           <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-            Deploy Antigravity entirely within your VPC. Zero data leaves your infrastructure.
+            Deploy Siphon entirely within your VPC. Zero data leaves your infrastructure.
           </p>
           <a
             href="#contact"
