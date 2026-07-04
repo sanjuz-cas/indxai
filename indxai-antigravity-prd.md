@@ -1,4 +1,4 @@
-# Product Requirements Document: Project Antigravity
+# Product Requirements Document: Project Siphon
 **Enterprise AI Token Optimization Proxy Middleware for indxai**
 
 ---
@@ -56,8 +56,8 @@ To keep the system highly performant and easy to deploy, the stack relies on rob
 
 ## 5. Presentation & Pitch Constraints
 
-When presenting Antigravity in high-level innovation competitions or client meetings, the design language must remain strictly minimalist and highly technical:
+When presenting Siphon in high-level innovation competitions or client meetings, the design language must remain strictly minimalist and highly technical:
 
-* **No Clutter:** Use simple, high-contrast blocks for architecture diagrams: `Client -> Antigravity -> Commercial API`.
-* **Focus on the Delta:** Show a single slide highlighting the cost difference between 1 million raw tokens and 1 million Antigravity-optimized tokens.
+* **No Clutter:** Use simple, high-contrast blocks for architecture diagrams: `Client -> Siphon -> Commercial API`.
+* **Focus on the Delta:** Show a single slide highlighting the cost difference between 1 million raw tokens and 1 million Siphon-optimized tokens.
 * **The Privacy Hook:** Lead with the token savings to capture attention, but position the local PII firewall as the absolute enterprise necessity.
