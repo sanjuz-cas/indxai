@@ -50,6 +50,50 @@ img {
   content-visibility: auto;
 }
 
+/* ─── Antigravity Product Page Animations ─── */
+
+/* Flow particles moving along connector lines */
+.flow-particle {
+  animation: flowMove 2s ease-in-out infinite;
+}
+.flow-particle-delayed {
+  animation: flowMove 2s ease-in-out infinite 0.5s;
+}
+
+@keyframes flowMove {
+  0% { left: 0; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: calc(100% - 8px); opacity: 0; }
+}
+
+/* Hero glow breathing */
+.product-hero-glow {
+  animation: heroGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlow {
+  0% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.95); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
+}
+
+/* Cost bar fill animations */
+.cost-bar-raw {
+  animation: barFillRaw 2s ease-out forwards;
+}
+.cost-bar-optimized {
+  animation: barFillOptimized 2.2s ease-out forwards;
+}
+
+@keyframes barFillRaw {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+@keyframes barFillOptimized {
+  0% { width: 0; }
+  100% { width: 63%; }
+}
+
 /* Smooth animations with reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   *,

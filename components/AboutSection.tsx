@@ -38,7 +38,7 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'contact'];
+      const sections = ['home', 'products', 'about', 'contact'];
       const scrollPosition = window.scrollY + 100; // Offset for header
 
       for (const section of sections) {
@@ -86,6 +86,7 @@ const Header: React.FC = () => {
           <div className="hidden md:flex flex-1 justify-center">
             <div className="flex items-center space-x-6">
               <NavLink href="#home" isActive={activeSection === 'home'}>HOME</NavLink>
+              <NavLink href="#products" isActive={activeSection === 'products'}>PRODUCTS</NavLink>
               <NavLink href="#about" isActive={activeSection === 'about'}>ABOUT</NavLink>
               <NavLink href="#contact" isActive={activeSection === 'contact'}>CONTACT</NavLink>
             </div>

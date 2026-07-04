@@ -57,6 +57,21 @@ const Footer: React.FC = () => {
               <li>
                 {isMainPage ? (
                   <a 
+                    href="#products" 
+                    onClick={handleLinkClick}
+                    className="text-gray-400 hover:text-orange-400 text-sm transition-colors cursor-pointer"
+                  >
+                    Products
+                  </a>
+                ) : (
+                  <Link to="/#products" className="text-gray-400 hover:text-orange-400 text-sm transition-colors">
+                    Products
+                  </Link>
+                )}
+              </li>
+              <li>
+                {isMainPage ? (
+                  <a 
                     href="#about" 
                     onClick={handleLinkClick}
                     className="text-gray-400 hover:text-orange-400 text-sm transition-colors cursor-pointer"

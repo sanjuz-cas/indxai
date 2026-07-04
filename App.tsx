@@ -12,6 +12,7 @@ import AboutPage from './components/AboutPage';
 import ContactPage from './components/ContactPage';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
+import ProductPage from './components/ProductPage';
 
 const MainPage: React.FC = () => {
   return (
@@ -22,6 +23,9 @@ const MainPage: React.FC = () => {
           <HeroSection />
           <PartnersSection />
           <StatsSection />
+        </section>
+        <section id="products">
+          <ProductPage />
         </section>
         <section id="about">
           <AboutPage />
