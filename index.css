@@ -1,107 +1,166 @@
-/* Custom gradient for radial effect */
-.bg-gradient-radial {
-  background: radial-gradient(circle, var(--tw-gradient-stops));
-}
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@400;500;600;700;800;900&display=swap');
 
-/* Additional custom styles */
-* {
+/* ── Base Reset ──────────────────────────────────────── */
+*, *::before, *::after {
   box-sizing: border-box;
-}
-
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* Screen reader only - for accessibility */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #000;
+  color: #e5e7eb;
+  margin: 0;
 }
 
-.sr-only:focus,
-.sr-only:active {
-  position: static;
-  width: auto;
-  height: auto;
-  overflow: visible;
-  clip: auto;
-  white-space: normal;
-}
-
-/* Focus visible styles for keyboard navigation */
-*:focus-visible {
-  outline: 2px solid #f97316;
-  outline-offset: 2px;
-}
-
-/* Performance optimizations */
-img {
+/* Performant off-screen sections */
+section {
   content-visibility: auto;
 }
 
-/* ─── Siphon Product Page Animations ─── */
-
-/* Flow particles moving along connector lines */
-.flow-particle {
-  animation: flowMove 2s ease-in-out infinite;
-}
-.flow-particle-delayed {
-  animation: flowMove 2s ease-in-out infinite 0.5s;
+/* ── Dot grid background ──────────────────────────────── */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
-@keyframes flowMove {
-  0% { left: 0; opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { left: calc(100% - 8px); opacity: 0; }
+/* ── Gradient border card ─────────────────────────────── */
+.card-glow-border {
+  position: relative;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(249,115,22,0.25) 0%, rgba(255,255,255,0.04) 50%, rgba(249,115,22,0.1) 100%);
+  padding: 1px;
+}
+.card-glow-border-inner {
+  background: #09090b;
+  border-radius: calc(1rem - 1px);
+  height: 100%;
+}
+.card-glow-border:hover {
+  background: linear-gradient(135deg, rgba(249,115,22,0.5) 0%, rgba(255,255,255,0.08) 50%, rgba(249,115,22,0.3) 100%);
 }
 
-/* Hero glow breathing */
-.product-hero-glow {
-  animation: heroGlow 6s ease-in-out infinite alternate;
+/* ── Keyframe animations ──────────────────────────────── */
+@keyframes ring-pulse {
+  0%   { transform: translate(-50%, -50%) scale(0.85); opacity: 0.5; }
+  50%  { transform: translate(-50%, -50%) scale(1.2);  opacity: 0;   }
+  100% { transform: translate(-50%, -50%) scale(0.85); opacity: 0.5; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px);   }
+  50%       { transform: translateY(-8px);  }
+}
+@keyframes flow-dots {
+  0%   { stroke-dashoffset: 40; }
+  100% { stroke-dashoffset: 0;  }
+}
+@keyframes shimmer-text {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(249,115,22,0.3), 0 0 40px rgba(249,115,22,0.1); }
+  50%       { box-shadow: 0 0 40px rgba(249,115,22,0.6), 0 0 80px rgba(249,115,22,0.2); }
+}
+@keyframes scan-line {
+  0%   { top: 0%;   opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
 }
 
-@keyframes heroGlow {
-  0% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.95); }
-  100% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
+/* ── Animated concentric rings ────────────────────────── */
+.animate-ring-1 {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 420px; height: 420px;
+  border-radius: 50%;
+  border: 1px solid rgba(249,115,22,0.12);
+  animation: ring-pulse 5s ease-in-out infinite;
+}
+.animate-ring-2 {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 620px; height: 620px;
+  border-radius: 50%;
+  border: 1px solid rgba(249,115,22,0.07);
+  animation: ring-pulse 5s ease-in-out 1.7s infinite;
+}
+.animate-ring-3 {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 820px; height: 820px;
+  border-radius: 50%;
+  border: 1px solid rgba(249,115,22,0.04);
+  animation: ring-pulse 5s ease-in-out 3.4s infinite;
 }
 
-/* Cost bar fill animations */
-.cost-bar-raw {
-  animation: barFillRaw 2s ease-out forwards;
-}
-.cost-bar-optimized {
-  animation: barFillOptimized 2.2s ease-out forwards;
+/* ── Utility animations ───────────────────────────────── */
+.animate-float { animation: float 5s ease-in-out infinite; }
+.animate-glow-pulse { animation: glow-pulse 3s ease-in-out infinite; }
+
+/* Flow arrow animation on SVG path */
+.flow-arrow-path {
+  stroke-dasharray: 8 6;
+  animation: flow-dots 0.8s linear infinite;
 }
 
-@keyframes barFillRaw {
-  0% { width: 0; }
-  100% { width: 100%; }
-}
-@keyframes barFillOptimized {
-  0% { width: 0; }
-  100% { width: 63%; }
+/* ── Shimmer gradient text ────────────────────────────── */
+.shimmer-text {
+  background: linear-gradient(90deg, #f97316 0%, #ffffff 40%, #fb923c 60%, #f97316 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-text 4s linear infinite;
 }
 
-/* Smooth animations with reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+/* ── Section label (01 / SECTION NAME) ────────────────── */
+.section-label {
+  font-family: Menlo, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(249,115,22,0.65);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.section-label::after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 2.5rem;
+  background: rgba(249,115,22,0.4);
+}
+
+/* ── Terminal code pill ───────────────────────────────── */
+.code-pill {
+  font-family: Menlo, monospace;
+  font-size: 0.7rem;
+  background: rgba(249,115,22,0.06);
+  border: 1px solid rgba(249,115,22,0.15);
+  border-radius: 0.4rem;
+  padding: 0.4rem 0.75rem;
+  color: rgba(249,115,22,0.8);
+}
+
+/* ── Orange CTA button glow ───────────────────────────── */
+.btn-orange {
+  background: #f97316;
+  color: white;
+  font-weight: 700;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 0 rgba(249,115,22,0);
+}
+.btn-orange:hover {
+  background: #ea580c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(249,115,22,0.4), 0 0 0 1px rgba(249,115,22,0.3);
 }

@@ -1,32 +1,81 @@
 import React from 'react';
+import { useScrollReveal } from '../hooks/use-scroll-reveal';
 
 const HeroSection: React.FC = () => {
+  const revealRef = useScrollReveal();
+  const subRef = useScrollReveal(150);
+
   return (
-    <div className="relative h-[95vh] min-h-[800px] w-full overflow-hidden flex flex-col justify-center items-center">
-      {/* Background Planet/Arc */}
-      <div className="absolute -top-1/4 left-1/2 -translate-x-1/2 w-[150vmin] h-[150vmin] rounded-full bg-gradient-radial from-orange-500/20 via-orange-800/10 to-transparent blur-3xl" />
-      <div className="absolute -top-1/4 left-1/2 -translate-x-1/2 w-[150vmin] h-[150vmin] rounded-full border-t border-orange-400/30" />
+    <section id="home" className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden pt-20 pb-28">
+      {/* Dot grid */}
+      <div className="absolute inset-0 dot-grid pointer-events-none" />
 
-      {/* Main Content Area */}
-      <div className="relative z-10 w-full h-full flex flex-col justify-center items-center px-4">
-        {/* Giant Text - TOKEN at top */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none overflow-hidden">
-          <h1 className="text-[20vw] sm:text-[15vw] md:text-[10rem] lg:text-[12rem] font-black text-white leading-none whitespace-nowrap">TOKEN</h1>
+      {/* Deep radial glow */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden>
+        <div
+          className="absolute top-1/2 left-1/2 w-[1000px] h-[1000px]"
+          style={{
+            transform: "translate(-50%, -52%)",
+            background: "radial-gradient(circle at center, rgba(249,115,22,0.22) 0%, rgba(249,115,22,0.06) 40%, transparent 70%)",
+            filter: "blur(40px)",
+          }}
+        />
+        {/* Ambient warm fill at top */}
+        <div
+          className="absolute top-0 left-0 right-0 h-64"
+          style={{ background: "linear-gradient(180deg, rgba(249,115,22,0.04) 0%, transparent 100%)" }}
+        />
+      </div>
+
+      {/* Animated concentric rings */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden>
+        <div className="animate-ring-1" />
+        <div className="animate-ring-2" />
+        <div className="animate-ring-3" />
+      </div>
+
+      {/* Main content */}
+      <div className="container relative z-10 mx-auto px-6 text-center">
+        {/* Pill label */}
+        <div ref={subRef} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-10
+          bg-orange-500/[0.08] border border-orange-500/20 backdrop-blur-sm">
+          <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse shrink-0" />
+          <span className="text-orange-400/90 font-mono text-[10px] tracking-[0.22em] uppercase">
+            Enterprise AI Infrastructure
+          </span>
         </div>
 
-        {/* Giant Text - FACTORY at bottom */}
-        <div className="absolute bottom-1/3 left-1/2 -translate-x-1/2 translate-y-1/2 pointer-events-none overflow-hidden">
-          <h1 className="text-[20vw] sm:text-[15vw] md:text-[10rem] lg:text-[12rem] font-black text-white leading-none whitespace-nowrap">FACTORY</h1>
+        <div ref={revealRef} className="flex flex-col items-center">
+          <h1
+            className="text-[6rem] sm:text-[8.5rem] md:text-[12rem] xl:text-[14rem] leading-[0.82]
+              font-black tracking-tighter text-white select-none"
+          >
+            TOKEN
+          </h1>
+          <h1
+            className="text-[6rem] sm:text-[8.5rem] md:text-[12rem] xl:text-[14rem] leading-[0.82]
+              font-black tracking-tighter select-none"
+            style={{
+              WebkitTextStroke: "2px rgba(255,255,255,0.08)",
+              background: "linear-gradient(180deg, #ffffff 0%, #71717a 100%)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            FACTORY
+          </h1>
         </div>
       </div>
-       {/* Bottom Text */}
-      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex items-center space-x-4 z-20">
-          <div className="w-px h-8 bg-orange-500"></div>
-          <p className="text-sm md:text-base lg:text-xl font-medium tracking-widest text-gray-300 uppercase whitespace-nowrap">
-              Where Innovation Meets Design
-          </p>
+
+      {/* Bottom divider + tagline */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10">
+        <div className="w-px h-14 bg-gradient-to-b from-transparent via-orange-500 to-transparent opacity-70" />
+        <p className="text-[9px] text-gray-500 tracking-[0.3em] uppercase font-semibold">
+          Where Innovation Meets Design
+        </p>
       </div>
-    </div>
+    </section>
   );
 };
 
